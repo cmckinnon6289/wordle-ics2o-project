@@ -35,7 +35,7 @@ cookieValueFindScore = document.cookie
     .split('=')[1];
 }
 class Square {
-    constructor(x,y,sqletter){
+    constructor(x,y,sqLetter){
         this.x = x
         this.y = y
         this.colour
