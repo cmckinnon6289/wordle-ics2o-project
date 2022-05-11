@@ -6,6 +6,7 @@ var correctArr = correctAnswer.split('')
 var score = 0
 var grid = []
 
+var size = squareDim
 var squareDim = 75
 var padding = squareDim/5
 var gridRow = 6
@@ -34,10 +35,11 @@ cookieValueFindScore = document.cookie
     .split('=')[1];
 }
 class Square {
-    constructor(x,y){
+    constructor(x,y,sqletter){
         this.x = x
         this.y = y
         this.colour
+        this.letter = sqLetter
     }
 
     drawSquare(){
@@ -61,6 +63,11 @@ class Square {
                 break;
         }
     }
+    
+    drawLetter(letter){
+        ctx.font = `${size}px Arial`
+        ctx.fillStyle = "#FFFFFF"
+        ctx.fillText(lett, squareDim+padding, squareDim+padding)
 }
 
 function initialiseSquares(){
@@ -94,16 +101,19 @@ function guessCheck(){
     var input = document.getElementById("input").value.toUpperCase();
     inputarr = input.split('')
     for (i=0;i<correctAnswer.length;i++){
-        ting = grid[i][score]
+        foobar = grid[i][score]
         if (inputarr[i] == correctArr[i]){
-            ting.setColour("Y")
-            ting.drawSquare();
+            foobar.setColour("Y")
+            foobar.drawLetter(inputarr[i])
+            foobar.drawSquare();
         } else if (correctArr.includes(inputarr[i]) && inputarr[i] != correctArr[i]){
-            ting.setColour("C")
-            ting.drawSquare();
+            foobar.setColour("C")
+            foobar.drawLetter(inputarr[i])
+            foobar.drawSquare();
         } else {
-            ting.setColour("N")
-            ting.drawSquare();
+            foobar.setColour("N")
+            foobar.drawLetter(inputarr[i])
+            foobar.drawSquare();
         }
     }
     if (input == correctAnswer){
