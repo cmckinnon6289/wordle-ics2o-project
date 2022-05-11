@@ -68,6 +68,7 @@ class Square {
         ctx.font = `${size}px Arial`
         ctx.fillStyle = "#FFFFFF"
         ctx.fillText(lett, squareDim+padding, squareDim+padding)
+    }
 }
 
 function initialiseSquares(){
