@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Wordle</title>
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+</head>
+<body onload="initialiseSquares()">
+
+<input maxlength="5" pattern="[a-zA-Z].{5,5}" id="input"/>
+<canvas id="myCanvas" width="480" height="720"></canvas>
+<div id="but">
+    <input type="button" id="submitput" value="Submit Guess" onclick="submit()"/>
+</div>
+<script rel="text/javascript" src="isp.js"></script>
+<p>This page uses cookies for essential purposes.</p>
+<input type="button" id="cook" value="Show cookies" onclick="cookieFoo()"/>
+<p><b>WARNING!</b> The button below will reveal the answer. This is for debugging/testing purposes. Don't press it if you don't want spoilers.</p>
+<button onclick="answer()">Reveal answer</button>
+
+</body>
+</html>
