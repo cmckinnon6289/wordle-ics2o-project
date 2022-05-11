@@ -153,3 +153,4 @@ function cookieFoo(){
 }
 
 document.onload = getCookie()
+console.warn("Load successful - game ready.")
