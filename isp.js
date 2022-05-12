@@ -103,17 +103,15 @@ function guessCheck(){
     inputarr = input.split('')
     for (i=0;i<correctAnswer.length;i++){
         foobar = grid[i][score]
+        foobar.drawLetter(inputarr[i])
         if (inputarr[i] == correctArr[i]){
             foobar.setColour("Y")
-            foobar.drawLetter(inputarr[i])
             foobar.drawSquare();
         } else if (correctArr.includes(inputarr[i]) && inputarr[i] != correctArr[i]){
             foobar.setColour("C")
-            foobar.drawLetter(inputarr[i])
             foobar.drawSquare();
         } else {
             foobar.setColour("N")
-            foobar.drawLetter(inputarr[i])
             foobar.drawSquare();
         }
     }
