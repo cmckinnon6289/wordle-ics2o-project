@@ -146,6 +146,7 @@ function hideButton(){
     var element = document.getElementById("but");
     var child = document.getElementById("submitput");
     element.removeChild(child);
+    console.log("Submit removed")
 }
 
 function cookieFoo(){
