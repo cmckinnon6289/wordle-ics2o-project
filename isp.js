@@ -67,7 +67,7 @@ class Square {
     drawLetter(letter){
         ctx.font = `${size}px Arial`
         ctx.fillStyle = "#FFFFFF"
-        ctx.fillText(lett, squareDim+padding, squareDim+padding)
+        ctx.fillText(letter, squareDim+padding, squareDim+padding)
     }
 }
 
