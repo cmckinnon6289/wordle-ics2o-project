@@ -6,7 +6,7 @@ var correctArr = correctAnswer.split('')
 var score = 0
 var grid = []
 
-var size = squareDim
+var size = 3*squareDim
 var squareDim = 75
 var padding = squareDim/5
 var gridRow = 6
@@ -67,7 +67,7 @@ class Square {
     drawLetter(letter){
         ctx.font = `${size}px Arial`
         ctx.fillStyle = "#00FF00"
-        ctx.fillText(letter, squareDim+padding, squareDim+padding)
+        ctx.fillText(letter, this.x+padding, this.y-padding)
     }
 }
 
