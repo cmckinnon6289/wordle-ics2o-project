@@ -6,7 +6,7 @@ var correctArr = correctAnswer.split('')
 var score = 0
 var grid = []
 
-var size = 3*squareDim
+var size = 400
 var squareDim = 75
 var padding = squareDim/5
 var gridRow = 6
