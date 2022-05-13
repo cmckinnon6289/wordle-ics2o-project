@@ -102,6 +102,11 @@ function guessCheck(){
     var input = document.getElementById("input").value.toUpperCase();
     inputarr = input.split('')
     for (i=0;i<correctAnswer.length;i++){
+        if (grid[i][score] == undefined){
+            alert("Invalid guess!")
+        }
+    }
+    else for (i=0;i<correctAnswer.length;i++){
         foobar = grid[i][score]
         if (inputarr[i] == correctArr[i]){
             foobar.setColour("Y")
