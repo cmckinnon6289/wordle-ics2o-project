@@ -66,8 +66,8 @@ class Square {
     
     drawLetter(letter){
         ctx.font = `${size}px Arial`
-        ctx.fillStyle = "#00FF00"
-        ctx.fillText(letter, this.x+padding, this.y+(2*padding))
+        ctx.fillStyle = "#FFFFFF"
+        ctx.fillText(letter, this.x+padding, this.y+(3*padding))
     }
 }
 
@@ -103,7 +103,6 @@ function guessCheck(){
     inputarr = input.split('')
     for (i=0;i<correctAnswer.length;i++){
         foobar = grid[i][score]
-        foobar.drawLetter(inputarr[i])
         if (inputarr[i] == correctArr[i]){
             foobar.setColour("Y")
             foobar.drawSquare();
@@ -114,6 +113,7 @@ function guessCheck(){
             foobar.setColour("N")
             foobar.drawSquare();
         }
+        foobar.drawLetter(inputarr[i])
     }
     if (input == correctAnswer){
         hideButton()
