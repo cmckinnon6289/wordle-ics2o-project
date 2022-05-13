@@ -106,19 +106,21 @@ function guessCheck(){
             alert("Invalid guess!")
         }
     }
-    else for (i=0;i<correctAnswer.length;i++){
-        foobar = grid[i][score]
-        if (inputarr[i] == correctArr[i]){
-            foobar.setColour("Y")
-            foobar.drawSquare();
-        } else if (correctArr.includes(inputarr[i]) && inputarr[i] != correctArr[i]){
-            foobar.setColour("C")
-            foobar.drawSquare();
-        } else {
-            foobar.setColour("N")
-            foobar.drawSquare();
-        }
+    else {
+        for (i=0;i<correctAnswer.length;i++){
+            foobar = grid[i][score]
+            if (inputarr[i] == correctArr[i]){
+                foobar.setColour("Y")
+                foobar.drawSquare();
+            } else if (correctArr.includes(inputarr[i]) && inputarr[i] != correctArr[i]){
+                foobar.setColour("C")
+                foobar.drawSquare();
+            } else {
+                foobar.setColour("N")
+                foobar.drawSquare();
+            }
         foobar.drawLetter(inputarr[i])
+        }
     }
     if (input == correctAnswer){
         hideButton()
