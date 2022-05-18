@@ -1,8 +1,8 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
-var answerIndex = setTimeout(Math.floor(Math.random() * 10), 86400000)
-var answerPossible = ["VIOLA","DELVE","SHORT","MEDIC","POISE","WORDS","THANK","LOANS","JAZZY","NYMPH"]
+var answerIndex = setTimeout(Math.floor(Math.random() * 11), 60000)
+var answerPossible = ["VIOLA","DELVE","SHORT","MEDIC","POISE","WORDS","THANK","LOANS","JAZZY","NYMPH","CRANK"]
 var correctAnswer = answerPossible[answerIndex]
 var correctArr = correctAnswer.split('')
 var score = 0
