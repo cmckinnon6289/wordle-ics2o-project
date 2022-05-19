@@ -1,7 +1,7 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
-var answerIndex = Math.floor(Math.random() * 11)
+var answerIndex = Math.floor(Math.random() * 110)
 var answerPossible = ["VIOLA","DELVE","SHORT","MEDIC","POISE","WORDS","THANK","LOANS","JAZZY","NYMPH","CRANK"]
 var correctAnswer = answerPossible[answerIndex]
 var correctArr = correctAnswer.split('')
