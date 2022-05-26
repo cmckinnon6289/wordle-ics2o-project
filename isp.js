@@ -19,7 +19,7 @@ var yay = new Audio("./SFX/tada.wav")
 var cookieValueFindPlayed
 var cookieValueFindWin
 var cookieValueFindScore
-var cookieValueFindWord
+var cookieValueFindWord = null
 
 if (document.cookie == null || document.cookie == ''){
     cookieValueFindPlayed = false
