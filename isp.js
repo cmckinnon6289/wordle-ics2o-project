@@ -6,21 +6,26 @@ var answerPossible = ["VIOLA","DELVE","SHORT","MEDIC","POISE","WORDS","THANK","L
 var correctAnswer = answerPossible[answerIndex]
 var correctArr = correctAnswer.split('')
 var score = 0
-var grid = []
 
+var grid = []
 var size = 75
 var squareDim = 75
 var padding = squareDim/5
 var gridRow = 6
 var gridColumn = 5
+var yay = new Audio("./SFX/tada.wav")
+
+// cookies
 var cookieValueFindPlayed
 var cookieValueFindWin
 var cookieValueFindScore
+var cookieValueFindWord
 
 if (document.cookie == null || document.cookie == ''){
     cookieValueFindPlayed = false
     cookieValueFindWin = false
     cookieValueFindScore = false
+    cookieValueFindWord = false
 }
 else {
 cookieValueFindPlayed = document.cookie
@@ -35,7 +40,12 @@ cookieValueFindScore = document.cookie
     .split('; ')
     .find(row => row.startsWith('score='))
     .split('=')[1];
+cookieValueFindWord = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('word='))
+    .split('=')[1];
 }
+
 class Square {
     constructor(x,y,sqLetter){
         this.x = x
@@ -89,11 +99,11 @@ function getCookie() {
     if (cookieValueFindPlayed == "true"){
         switch (cookieValueFindWin){
         case "true":
-            alert(`You already played today! The correct answer was ${correctAnswer}. You got this after ${cookieValueFindScore} guesses. `)
+            alert(`You already played today! The correct answer was ${cookieValueFindWord}. You got this after ${cookieValueFindScore} guesses. `)
             hideButton()
             break;
         case "false":
-            alert(`You already played today! The correct answer was ${correctAnswer}. You didn't get the word today.`)
+            alert(`You already played today! The correct answer was ${cookieValueFindWord}. You didn't get the word today.`)
             hideButton()
             break;
         }
@@ -129,9 +139,11 @@ function guessCheck(){
     if (input == correctAnswer){
         hideButton()
         alert("Congrats!")
+        yay.play()
         document.cookie = "played=true; max-age=86400*1000; path=/;"
         document.cookie = "win=true; max-age=86400*1000; path=/;"
         document.cookie = `score=${score}; max-age=86400*1000; path=/;`
+        document.cookie = `word=${correctAnswer}; max-age=86400000; path=/;`
     }
 }
 
@@ -147,7 +159,8 @@ function submit(){
         setTimeout(alert("Bad luck! The word was "+correctAnswer+". Try again tomorrow!"),500)
         document.cookie = "played=true; max-age=86400*1000; path=/;"
         document.cookie = "win=false; max-age=86400*1000; path=/;"
-        document.cookie = `score=${score}; max-age=86400*1000; path=/;`
+        document.cookie = `score=${score}; max-age=86400000; path=/;`
+        document.cookie = `word=${correctAnswer}; max-age=86400000; path=/;`
     }
 }
 
