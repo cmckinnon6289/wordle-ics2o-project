@@ -64,6 +64,7 @@ class Square {
     }
 
     setColour(lett){
+        // colour changer
         switch(lett){
             case "Y":
                 this.colour = "#6aaa64"
@@ -78,6 +79,7 @@ class Square {
     }
     
     drawLetter(letter){
+        // take each letter and put it in the box
         ctx.font = `${size}px Arial`
         ctx.fillStyle = "#FFFFFF"
         ctx.fillText(letter, this.x+padding, this.y+(4*padding))
@@ -85,6 +87,7 @@ class Square {
 }
 
 function initialiseSquares(){
+    // make squares for the number of columns/rows
     for (var c = 0; c<gridColumn; c++){
         grid[c] = []
         for (var r = 0; r<gridRow; r++){
@@ -99,6 +102,7 @@ function initialiseSquares(){
 function getCookie() {
     if (cookieValueFindPlayed == "true"){
         switch (cookieValueFindWin){
+        // if it's true throw one alert, if not throw the other
         case "true":
             alert(`You already played today! The correct answer was ${cookieValueFindWord}. You got this after ${cookieValueFindScore} guesses. `)
             hideButton()
@@ -122,6 +126,7 @@ function guessCheck(){
         }
     }
     if (und != true) {
+        // if the guess is not undefined then analyze the guess
         for (i=0;i<correctAnswer.length;i++){
             foobar = grid[i][score]
             if (inputarr[i] == correctArr[i]){
@@ -138,6 +143,8 @@ function guessCheck(){
         }
     }
     if (input == correctAnswer){
+        // yay you won! now a bunch of cookies exist and things happen
+        // the submit button is hidden because you can no longer guess
         hideButton()
         alert("Congrats!")
         yay.play()
@@ -156,6 +163,8 @@ function submit(){
     guessCheck()
     score++
     if (score == gridRow){
+        // if you run out of guesses a bunch of cookies come into existance and things happen
+        // the submit button is hidden because you can no longer guess
         hideButton()
         boo.play()
         setTimeout(alert("Bad luck! The word was "+correctAnswer+". Try again tomorrow!"),500)
@@ -167,6 +176,8 @@ function submit(){
 }
 
 function hideButton(){
+    // find the div element "but" and the child element "submitput" (submit button
+    // then remove it
     var element = document.getElementById("but");
     var child = document.getElementById("submitput");
     element.removeChild(child);
@@ -174,8 +185,11 @@ function hideButton(){
 }
 
 function cookieFoo(){
+    // show list of cookies
     alert(document.cookie)
 }
 
 document.onload = getCookie()
+// check to see if played already
+
 console.warn("Load successful - game ready.")
