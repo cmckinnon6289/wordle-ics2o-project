@@ -14,6 +14,7 @@ var padding = squareDim/5
 var gridRow = 6
 var gridColumn = 5
 var yay = new Audio("./SFX/tada.wav")
+var boo = new Audio("./SFX/skull.wav")
 
 // cookies
 var cookieValueFindPlayed
@@ -156,6 +157,7 @@ function submit(){
     score++
     if (score == gridRow){
         hideButton()
+        boo.play()
         setTimeout(alert("Bad luck! The word was "+correctAnswer+". Try again tomorrow!"),500)
         document.cookie = "played=true; max-age=86400*1000; path=/;"
         document.cookie = "win=false; max-age=86400*1000; path=/;"
