@@ -168,10 +168,10 @@ function submit(){
         hideButton()
         boo.play()
         setTimeout(alert("Bad luck! The word was "+correctAnswer+". Try again tomorrow!"),500)
-        document.cookie = "played=true; max-age=86400*1000; path=/;"
-        document.cookie = "win=false; max-age=86400*1000; path=/;"
-        document.cookie = `score=${score}; max-age=86400000; path=/;`
-        document.cookie = `word=${correctAnswer}; max-age=86400000; path=/;`
+        document.cookie = "played=true; max-age=86400; path=/;"
+        document.cookie = "win=false; max-age=86400; path=/;"
+        document.cookie = `score=${score}; max-age=86400; path=/;`
+        document.cookie = `word=${correctAnswer}; max-age=86400; path=/;`
     }
 }
 
