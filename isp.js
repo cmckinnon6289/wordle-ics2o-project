@@ -117,14 +117,12 @@ function getCookie() {
 
 function guessCheck(){
     var input = document.getElementById("input").value.toUpperCase();
+    if (input == undefined){
+        alert("Invalid guess!")
+        und = true
+    }
     inputarr = input.split('')
     var und
-    for (i=0;i<correctAnswer.length;i++){
-        if (grid[i][score] == undefined){
-            alert("Invalid guess!")
-            und = true
-        }
-    }
     if (und != true) {
         // if the guess is not undefined then analyze the guess
         for (i=0;i<correctAnswer.length;i++){
